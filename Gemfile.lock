@@ -82,6 +82,8 @@ GEM
     factory_bot_rails (5.0.2)
       factory_bot (~> 5.0.2)
       railties (>= 4.2.0)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.10.0)
     formatador (0.2.5)
     globalid (0.4.2)
@@ -245,6 +247,7 @@ DEPENDENCIES
   capistrano-rvm
   dotenv-rails
   factory_bot_rails
+  fast_jsonapi
   guard
   guard-livereload
   guard-rspec
