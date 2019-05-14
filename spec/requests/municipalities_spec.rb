@@ -20,6 +20,7 @@ RSpec.describe 'Municipalities', type: :request do
 
   it 'returns municipalities data' do
     municipality = create(:municipality)
+    municipality2 = create(:municipality)
     headers = {
       'ACCEPT' => 'application/json',
       'HTTP_ACCEPT' => 'application/json'
@@ -28,10 +29,9 @@ RSpec.describe 'Municipalities', type: :request do
     get municipalities_path, params: { trunc: true }, headers: headers
     parsed_body = JSON.parse(response.body)
     expect(response.content_type).to eq('application/json')
-    binding.pry
-    expect(parsed_body['data'][0]['attributes']['muni_id']).to eq(municiaplity.muni_id.to_s)
+    expect(parsed_body['data'][0]['attributes']['muni_id']).to eq(municipality.muni_id)
     expect(parsed_body['data'][0]['attributes']['name']).to eq(municipality.name)
-    expect(parsed_body['data'][0]['links']['self']).to eq("#{request.host}/municipalities/#{municipality.id}")
+    expect(parsed_body['data'][0]['links']['self']).to eq("#{Rails.application.routes.url_helpers.municipalities_url}/#{municipality.id}")
   end
 end
 
