@@ -59,3 +59,10 @@ end
 #     }
 #   }]
 # }
+
+# curl 'http://localhost:3000/municipalities?filter\[mapc\]=true&page\[size\]=351' \
+# -XGET \
+# -H 'Accept: application/json, text/javascript, */*; q=0.01' \
+# -H 'Origin: http://localhost:4200' \
+# -H 'Referer: http://localhost:4200/' \
+# -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1 Safari/605.1.15'
