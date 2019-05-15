@@ -2,7 +2,6 @@ require 'factory_bot'
 
 FactoryBot.define do
   factory :project do
-    proj_id { 1 }
     title { "My Project Title"}
     image { "binary image data"}
     description { "My Project Description"}
