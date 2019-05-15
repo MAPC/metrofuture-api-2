@@ -3,9 +3,7 @@ class MunicipalitiesController < ApplicationController
 
   # GET /municipalities
   def index
-    @municipalities = Municipality.all
-
-    render json: @municipalities
+    render json: MunicipalitySerializer.new(Municipality.all)
   end
 
   # GET /municipalities/1
