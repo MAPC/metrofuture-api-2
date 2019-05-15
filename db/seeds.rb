@@ -15,3 +15,12 @@ csv.each do |row|
   a.name = row['municipal']
   a.save
 end
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'mapc-subregions.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+csv.each do |row|
+  a = Subregion.new
+  a.name = row['SubregionLong']
+  a.abbv = row['Subregion']
+  a.save
+end
