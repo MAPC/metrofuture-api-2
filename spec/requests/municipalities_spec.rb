@@ -28,7 +28,6 @@ RSpec.describe 'Municipalities', type: :request do
     get municipalities_path, params: { trunc: true }, headers: headers
     parsed_body = JSON.parse(response.body)
     expect(response.content_type).to eq('application/json')
-    binding.pry
     expect(parsed_body['data'][0]['attributes']['muni_id']).to eq(municiaplity.muni_id.to_s)
     expect(parsed_body['data'][0]['attributes']['name']).to eq(municipality.name)
     expect(parsed_body['data'][0]['links']['self']).to eq("#{request.host}/municipalities/#{municipality.id}")
