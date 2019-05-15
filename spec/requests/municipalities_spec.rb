@@ -11,13 +11,6 @@ require 'rails_helper'
 # -H 'Connection: keep-alive'
 
 RSpec.describe 'Municipalities', type: :request do
-  let(:valid_jsonapi_params) do
-    hash = Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
-    hash['data']['type'] = 'development'
-    hash['data']['attributes'] = FactoryBot.attributes_for(:development)
-    hash.to_json
-  end
-
   it 'returns municipalities data' do
     municipality = create(:municipality)
     municipality2 = create(:municipality)
