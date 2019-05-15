@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_05_15_131735) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer "proj_id"
     t.string "title"
     t.binary "image"
     t.text "description"
