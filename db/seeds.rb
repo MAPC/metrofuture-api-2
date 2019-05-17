@@ -24,3 +24,18 @@ csv.each do |row|
   a.abbv = row['Subregion']
   a.save
 end
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'projects.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+csv.each do |row|
+  a = Project.new
+  a.title = row[0]
+  a.image = 'no image provided'
+  a.description = row[14]
+  a.location = row[7]
+  a.primary_department = row[2]
+  a.project_manager = row[3]
+  a.website = row[17]
+  a.status = row[1]
+  a.save
+end
