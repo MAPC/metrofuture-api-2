@@ -8,7 +8,7 @@ class MunicipalitiesController < ApplicationController
 
   # GET /municipalities/1
   def show
-    render json: @municipality
+    render json: MunicipalitySerializer.new(@municipality)
   end
 
   # POST /municipalities
@@ -36,14 +36,20 @@ class MunicipalitiesController < ApplicationController
     @municipality.destroy
   end
 
+
+  def root
+    @municipality = Municipality.find(32)
+    render json: MunicipalitySerializer.new(@municipality)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_municipality
-      @municipality = Municipality.find(params[:id])
+      @municipality = Municipality.all.detect { |m| m.geojson["id"] == params[:id].to_i }
     end
 
     # Only allow a trusted parameter "white list" through.
     def municipality_params
-      params.require(:municipality).permit(:muni_id, :name)
+      params.require(:municipality).permit(:name, :muni_id, :geojson, :image)
     end
 end

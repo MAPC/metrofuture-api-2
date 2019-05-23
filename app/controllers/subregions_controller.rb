@@ -1,5 +1,5 @@
 class SubregionsController < ApplicationController
-  before_action :set_subregion, only: [:show, :update, :destroy]
+  before_action :set_subregion, only: [:show, :update, :destroy, :subregion_unique_projects]
 
   # GET /subregions
   def index
@@ -8,7 +8,7 @@ class SubregionsController < ApplicationController
 
   # GET /subregions/1
   def show
-    render json: @subregion
+    render json: SubregionSerializer.new(@subregion)
   end
 
   # POST /subregions
@@ -34,6 +34,11 @@ class SubregionsController < ApplicationController
   # DELETE /subregions/1
   def destroy
     @subregion.destroy
+  end
+
+  def subregion_unique_projects
+    projects = @subregion.subregion_unique_projects
+    render json: projects
   end
 
   private
