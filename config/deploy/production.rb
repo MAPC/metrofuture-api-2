@@ -9,8 +9,6 @@ server "live.mapc.org", user: "metrofuture-api-2", roles: %w{app db web}
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 
-
-
 # role-based syntax
 # ==================
 
