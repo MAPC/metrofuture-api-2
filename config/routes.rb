@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :subregions
   resources :municipalities
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :projects
+  resources :subregions
+  root to: 'municipalities#root'
+  get '/subregions/:id/subregion_unique_projects', to: 'subregions#subregion_unique_projects'
 end
