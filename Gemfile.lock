@@ -33,6 +33,9 @@ GEM
       activemodel (= 5.2.3)
       activesupport (= 5.2.3)
       arel (>= 9.0)
+    activerecord-postgis-adapter (5.2.2)
+      activerecord (~> 5.1)
+      rgeo-activerecord (~> 6.0)
     activestorage (5.2.3)
       actionpack (= 5.2.3)
       activerecord (= 5.2.3)
@@ -82,6 +85,8 @@ GEM
     factory_bot_rails (5.0.2)
       factory_bot (~> 5.0.2)
       railties (>= 4.2.0)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
     ffi (1.11.1)
@@ -103,6 +108,8 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
+    guard-pow (2.0.0)
+      guard (~> 2.0)
     guard-rspec (4.7.3)
       guard (~> 2.1)
       guard-compat (~> 1.1)
@@ -129,6 +136,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.10)
     multi_json (1.13.1)
+    multipart-post (2.1.1)
     nenv (0.3.0)
     net-scp (2.0.0)
       net-ssh (>= 2.6.5, < 6.0.0)
@@ -185,6 +193,10 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rgeo (2.0.1)
+    rgeo-activerecord (6.2.0)
+      activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -237,6 +249,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgis-adapter
   bootsnap (>= 1.1.0)
   byebug
   capistrano (~> 3.11)
@@ -246,9 +259,11 @@ DEPENDENCIES
   capistrano-rvm
   dotenv-rails
   factory_bot_rails
+  faraday
   fast_jsonapi
   guard
   guard-livereload
+  guard-pow
   guard-rspec
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
@@ -270,4 +285,4 @@ RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
