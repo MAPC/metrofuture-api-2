@@ -35,8 +35,10 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'terminal-notifier-guard'
+  group :darwin do
+    gem 'rb-fsevent', :require => false
+  end
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
