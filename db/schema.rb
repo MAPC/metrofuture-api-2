@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.string "title"
     t.string "status"
     t.string "primary_department"
+    t.string "primary_department_css_class"
     t.string "start_date"
     t.string "end_date"
     t.string "actual_completion_date"

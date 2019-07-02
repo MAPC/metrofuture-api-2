@@ -7,6 +7,7 @@ class ProjectSerializer
     :subregions,
     :status,
     :primary_department,
+    :primary_department_css_class,
     :start_date,
     :end_date,
     :actual_completion_date,

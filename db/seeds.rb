@@ -90,6 +90,7 @@ def load_projects_csv
     a.image = '/images/project.jpg'
     a.status = cleaner.clean(row['Project Status'])
     a.primary_department = cleaner.clean(row['Lead Department'])
+    a.primary_department_css_class = cleaner.snake_case(row['Lead Department'])
     a.start_date = cleaner.clean(row['Start Date'])
     a.end_date = cleaner.clean(row['End Date'])
     a.actual_completion_date = cleaner.clean(row['Actual Completion Date'])
