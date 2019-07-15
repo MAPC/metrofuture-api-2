@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :status
       t.string :primary_department
+      t.string :primary_department_css_class
       t.string :start_date
       t.string :end_date
       t.string :actual_completion_date
