@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# METRO FUTURE IN ACTION API V2
 
-Things you may want to cover:
+* This version of the API is based on a 'triage' effort to revive the legacy app.
 
-* Ruby version
+* The app is in 2 parts, Client and API.
 
-* System dependencies
+* The client app is in Backbone.js and it references this API
 
-* Configuration
+* Client is here:  `https://github.com/MAPC/metrofuture-client`
 
-* Database creation
+* This API has static JSON data which is imported via the rake task: `rails db:seed`
 
-* Database initialization
+# To set up and run this API:
 
-* How to run the test suite
+use Ruby version: 2.6.3
 
-* Services (job queues, cache servers, search engines, etc.)
+`$ bundle install`
 
-* Deployment instructions
+`$ rails db:create`
 
-* ...
+`$ rails db:migrate`
+
+`$ rails db:seed`  (Note: this takes awhile, let it run)
+
+start the API:
+`$ rails s`
+
+To use this API from the client app, edit the API Endpoint in `app/scripts/main.js`
+
+change:
+```
+  //API Endpoint
+  MfiaClient.API = "https://metrofutureapi.mapc.org"
+```
+
+to:
+```
+  //API Endpoint
+  MfiaClient.API = "http://127.0.0.1:3000"
+```
